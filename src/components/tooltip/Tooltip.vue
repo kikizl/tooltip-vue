@@ -9,7 +9,8 @@
             'is-multiline': multilined,
             'is-dashed': dashed
         }]"
-        :style="{'transition-delay': `${delay}ms`}">
+        :style="{'transition-delay': `${delay}ms`}"
+        >
         <slot/>
     </span>
 </template>
@@ -64,15 +65,7 @@ export default {
 }
 </script>
 <style lang="scss" >
-$tooltip-arrow-size: 5px;
-$tooltip-arrow-margin: 2px;
-
-$tooltip-multiline-sizes: (
-    small: 180px,
-    medium: 240px,
-    large: 300px
-);
-
+$bg-color: rgba($color: #000000, $alpha: .6);
 
 // Base
 .tooltip {
@@ -92,13 +85,21 @@ $tooltip-multiline-sizes: (
     &:after {
         content: attr(data-label);
         width: auto;
-        padding: 0.35rem 0.75rem;
-        // border-radius: $radius-large;
+        // padding: 0.35rem 0.75rem;
         font-size: 0.85rem;
-        // font-weight: $weight-normal;
-        box-shadow: 0px 1px 2px 1px rgba(0, 1, 0, 0.2);
         z-index: 888;
         white-space: nowrap;
+        // width: max-content; 
+        background-color: $bg-color;
+        color: #ffffff;
+        padding: .5rem 1rem;
+        border-radius: 4px;
+        max-width: 10rem;
+        word-break: break-word;
+        // z-index: 1000;
+        line-height: .7rem;
+        // display: none;
+        transition: display 1s;
     }
     &:not([data-label=""]):hover:before,
     &:not([data-label=""]):hover:after {
@@ -120,6 +121,17 @@ $tooltip-multiline-sizes: (
             text-align: center;
             white-space: normal;
         }
+        &.is-multiline {
+            &.is-small:after {
+                width: 180px;
+            }
+            &.is-medium:after {
+                width: 240px;
+            }
+            &.is-large:after {
+                width: 240px;
+            }
+        }
     }
     &.is-dashed {
         // border-bottom: 1px dashed $grey-light;
@@ -138,22 +150,27 @@ $tooltip-multiline-sizes: (
     }
 
 
-    // .is-bottom{
-    //     top: calc(100% + 6px);
-    //     transform: translate(-50%,0);
-    //     margin-left:-50%;
-    //     &::before{
-    //         content:'';
-    //         position:absolute;
-    //         width: 0;
-    //         height: 0;
-    //         border-left:6px solid transparent;
-    //         border-right:6px solid transparent;
-    //         border-bottom:6px solid rgba($color: #000000, $alpha: .6);
-    //         top:-6px;
-    //         left:calc(50% - 3px);  
-    //     }
-    // }
+    &.is-bottom{
+        &:before {
+            top: calc(100% + 5px + 2px);
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            transform: translateX(-50%);
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid $bg-color;
+            border-left: 5px solid transparent;
+            top: calc(100% + 2px);
+        }
+        &:after {
+            top: calc(100% + 5px + 2px);
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $bg-color;
+        }
+    }
 }
 
 </style>
