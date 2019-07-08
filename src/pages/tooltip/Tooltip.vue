@@ -71,7 +71,7 @@ export default {
 <style lang="scss">
 .tooltip-demo  {
     & > section {
-        display: flex;
+        // display: flex;
         padding: 20px;
 
         .tooltip {
