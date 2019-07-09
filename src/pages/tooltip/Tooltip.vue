@@ -8,25 +8,25 @@
                     Right
                 </button>
             </tooltip>
-
             <tooltip label="Tooltip top">
                 <button class="button is-primary">
                     Top (default)
                 </button>
             </tooltip>
-
             <tooltip label="Tooltip bottom"
                 position="is-bottom">
                 <button class="button is-primary">
                     Bottom
                 </button>
             </tooltip>
-
             <tooltip label="Tooltip left"
                 position="is-left">
                 <button class="button is-primary">
                     Left
                 </button>
+            </tooltip>
+            <tooltip label="Text is here" >
+                Simple text
             </tooltip>
         </section>
         <section>
@@ -99,9 +99,7 @@
                 </button>
             </tooltip>
 
-            <tooltip label="Text is here" >
-                Simple text
-            </tooltip>
+            
         </section>
 
         <section>
@@ -133,6 +131,27 @@
                     Multiline (large)
                 </button>
             </tooltip>
+        </section>
+        <section>
+            <div class="limit-content">
+                <tooltip
+                    label="It's not briefy, but also not long enough"
+                    position="is-left"
+                    multilined>
+                    <button class="button is-primary">
+                        Multiline (small)
+                    </button>
+                </tooltip>
+
+                <tooltip
+                    label="Tooltip large multilined, because it's really long to be on a medium size. Did I tell you it's really long? Yes, it is — I asure you!"
+                    position="is-left"
+                    multilined>
+                    <button class="button is-primary">
+                        Multiline (large)
+                    </button>
+                </tooltip>
+            </div>
         </section>
     </div>
     
@@ -180,6 +199,16 @@ export default {
         color: #444;
         background: #f4f4f4;
         font-weight: 400;   
+    }
+
+    .limit-content {
+        overflow: hidden;
+        padding: 24px;
+        border: 1px solid rgb(233, 233, 233);
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        margin: 0 auto;
     }
 }
 </style>
