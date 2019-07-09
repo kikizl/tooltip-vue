@@ -110,12 +110,9 @@ export default {
                 document.body.removeChild(child)
             }
             let originDom = this.$refs['tooltip']
-            console.log(originDom.offsetTop)
-
             this.rectObject = originDom.getBoundingClientRect()
             this.leftOffset = originDom.offsetLeft
             this.topOffset = originDom.offsetTop
-            // offsetLeft
 
             var fragment = document.createDocumentFragment();
             var tmpNode = document.createElement("div");

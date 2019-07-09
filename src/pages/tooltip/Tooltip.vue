@@ -96,7 +96,6 @@
                     Bottom
                 </button>
             </tooltip>
-
             <tooltip label="I'm never closing"
                 :active="active"
                 position="is-bottom"
@@ -116,7 +115,6 @@
                     Multiline (default)
                 </button>
             </tooltip>
-
             <tooltip
                 label="It's not briefy, but also not long enough"
                 size="is-small"
@@ -126,7 +124,6 @@
                     Multiline (small)
                 </button>
             </tooltip>
-
             <tooltip
                 label="Tooltip large multilined, because it's really long to be on a medium size. Did I tell you it's really long? Yes, it is — I asure you!"
                 position="is-bottom"
@@ -150,7 +147,6 @@
             </div>
         </section>
     </div>
-    
 </template>
 
 <script>
