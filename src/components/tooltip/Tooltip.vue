@@ -165,6 +165,7 @@ export default {
 
 $bg-color: rgba($color: #000000, $alpha: .6);
 $font-color: #ffffff;
+$light-color: #f5f5f5;
 $triangle-width: 5px;
 $triangle-margin: 2px;
 
@@ -235,6 +236,9 @@ $triangle-margin: 2px;
             bottom: calc(100% + #{$triangle-margin});
 
         }
+        &.is-light .triangle {
+            border-top-color: $light-color;
+        }
     }
 
     &.is-top-left {
@@ -267,6 +271,9 @@ $triangle-margin: 2px;
             border-bottom: $triangle-width solid $bg-color;
             border-left: $triangle-width solid transparent;
             top: calc(100% + #{$triangle-margin});
+        }
+        &.is-light .triangle {
+            border-bottom-color: $light-color;
         }
     }
 
@@ -301,6 +308,9 @@ $triangle-margin: 2px;
             border-left: $triangle-width solid $bg-color;
             right: calc(100% + #{$triangle-margin});
         }
+        &.is-light .triangle {
+            border-left-color: $light-color;
+        }
     }
 
     &.is-left-top {
@@ -333,6 +343,9 @@ $triangle-margin: 2px;
             border-bottom: $triangle-width solid transparent;
             border-right: $triangle-width solid $bg-color;
             left: calc(100% + #{$triangle-margin});
+        }
+        &.is-light .triangle {
+            border-right-color: $light-color;
         }
     }
 
@@ -376,10 +389,7 @@ $triangle-margin: 2px;
     &.is-light {
         .message {
             color: $bg-color;
-            background-color: $font-color;
-        }
-        .triangle {
-            border-color: $font-color;
+            background-color: $light-color;
         }
     }
 }

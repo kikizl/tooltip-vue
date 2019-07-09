@@ -3,13 +3,13 @@
         <p>demo here</p>
         <section>
             <tooltip label="Tooltip right"
-            type="is-light"
-            position="is-right">
+                position="is-right">
                 <button class="button is-primary">
                     Right
                 </button>
             </tooltip>
-            <tooltip label="Tooltip top">
+            <tooltip label="Tooltip top"
+                type="is-light">
                 <button class="button is-primary">
                     Top (default)
                 </button>
@@ -195,7 +195,7 @@ export default {
         overflow: hidden;
         padding: 24px;
         border: 1px solid rgb(233, 233, 233);
-        width: 1500px;
+        width: 500px;
         margin: 0 auto;
     }
 }
