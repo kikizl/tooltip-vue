@@ -11,7 +11,7 @@
             <tooltip label="Tooltip top"
                 type="is-light">
                 <button class="button is-primary">
-                    Top (default)
+                    Top (default & light)
                 </button>
             </tooltip>
             <tooltip label="Tooltip bottom"
@@ -84,7 +84,13 @@
         </section>
 
         <section>
+            <button class="button is-primary"
+                @click="active = !active">
+                Toggle 
+            </button>
+            <span>(enable or disable the next two tooltips)</span>
             <tooltip label="Tooltip bottom"
+                :active="active"
                 position="is-bottom">
                 <button class="button is-primary">
                     Bottom
@@ -99,8 +105,6 @@
                     Always
                 </button>
             </tooltip>
-
-            
         </section>
 
         <section>
@@ -160,6 +164,11 @@ export default {
     props: {
     },
     computed: {
+    },
+    data() {
+        return {
+            active: true
+        }
     }
 }
 </script>

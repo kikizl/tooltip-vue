@@ -145,19 +145,10 @@ export default {
                 }, 200)
             }
         },
-        // screenHeight (val) {
-        //     if (!this.timer) {
-        //         this.screenHeight= val
-        //         this.timer = true
-        //         let that = this
-        //         setTimeout(function () {
-        //             console.log(that.screenHeight)
-        //             that.test()
-        //             that.timer = false
-        //         }, 200)
-        //     }
-        // }
-
+        active (newvalue, oldvalue) {
+            console.log(newvalue, oldvalue)
+            this.test()
+        }
     }
 }
 </script>
