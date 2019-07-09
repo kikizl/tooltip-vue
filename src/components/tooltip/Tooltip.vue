@@ -3,11 +3,8 @@
         :data-label="label"
         :class="[newType, position, size, {
             'tooltip': active,
-            'is-square': square,
-            'is-animated': newAnimated,
             'is-always': always,
             'is-multiline': multilined,
-            'is-dashed': dashed
         }]"
         :style="{'transition-delay': `${delay}ms`}"
         >
@@ -39,9 +36,6 @@ export default {
             }
         },
         always: Boolean,
-        animated: Boolean,
-        square: Boolean,
-        dashed: Boolean,
         multilined: Boolean,
         size: {
             type: String,
@@ -90,15 +84,9 @@ $triangle-margin: 2px;
         font-size: 0.85rem;
         z-index: 888;
         white-space: nowrap;
-        // width: max-content; 
         background-color: $bg-color;
         color: #ffffff;
-        // padding: .5rem 1rem;
         border-radius: 4px;
-        // max-width: 10rem;
-        // word-break: break-word;
-        // z-index: 1000;
-        // line-height: .7rem;
         transition: display 1s;
     }
     &:not([data-label=""]):hover:before,
@@ -116,21 +104,7 @@ $triangle-margin: 2px;
         }
     }
     
-    &.is-dashed {
-        // border-bottom: 1px dashed $grey-light;
-        cursor: default;
-    }
-    &.is-square {
-        &:after {
-            border-radius: 0;
-        }
-    }
-    &.is-animated {
-        &:before,
-        &:after {
-            // transition: opacity $speed $easing, visibility $speed $easing;
-        }
-    }
+    
     &.is-top {
         &:before, &:after {
             top: auto;

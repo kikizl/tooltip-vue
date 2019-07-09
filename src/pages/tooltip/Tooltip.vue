@@ -53,6 +53,10 @@
                     Always
                 </button>
             </tooltip>
+
+            <tooltip label="Text is here" >
+                Simple text
+            </tooltip>
         </section>
 
         <section>
