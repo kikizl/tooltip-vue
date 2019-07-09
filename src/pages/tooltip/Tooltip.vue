@@ -142,15 +142,6 @@
                         Multiline (small)
                     </button>
                 </tooltip>
-
-                <tooltip
-                    label="Tooltip large multilined, because it's really long to be on a medium size. Did I tell you it's really long? Yes, it is — I asure you!"
-                    position="is-left"
-                    multilined>
-                    <button class="button is-primary">
-                        Multiline (large)
-                    </button>
-                </tooltip>
             </div>
         </section>
     </div>
@@ -178,14 +169,11 @@ export default {
 
 .tooltip-demo  {
     & > section {
-        // display: flex;
         padding: 20px;
     }
 
-    
-
     .is-primary {
-        // box-sizing: border-box;
+        box-sizing: border-box;
         padding: 9px 25px;
         height: 34px;
         display: inline-flex;
