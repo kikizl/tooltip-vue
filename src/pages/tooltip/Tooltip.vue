@@ -28,11 +28,56 @@
                     Left
                 </button>
             </tooltip>
-
-            <tooltip label="delayed by 1000ms"
-                :delay="1000">
+        </section>
+        <section>
+            <tooltip label="Tooltip top left"
+                position="is-top-left">
                 <button class="button is-primary">
-                    Delayed
+                    Top Left
+                </button>
+            </tooltip>
+            <tooltip label="Tooltip top right"
+                position="is-top-right">
+                <button class="button is-primary">
+                    Top Right
+                </button>
+            </tooltip>
+            <tooltip label="Tooltip bottom left"
+                position="is-bottom-left">
+                <button class="button is-primary">
+                    Bottom Left
+                </button>
+            </tooltip>
+            <tooltip label="Tooltip bottom right"
+                position="is-bottom-right">
+                <button class="button is-primary">
+                    Bottom Right
+                </button>
+            </tooltip>
+        </section>
+        <section>
+            <tooltip label="Tooltip left top"
+                position="is-left-top">
+                <button class="button is-primary">
+                    Left Top
+                </button>
+            </tooltip>
+            <tooltip label="Tooltip right top"
+                position="is-right-top">
+                <button class="button is-primary">
+                    Right Top
+                </button>
+            </tooltip>
+            <tooltip label="Tooltip left bottom"
+                position="is-left-bottom">
+                <button class="button is-primary">
+                    Left Bottom
+                </button>
+            </tooltip>
+            <tooltip label="Tooltip right bottom"
+                position="is-right-bottom">
+                <button class="button is-primary">
+                    Right Bottom
                 </button>
             </tooltip>
         </section>

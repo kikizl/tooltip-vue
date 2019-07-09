@@ -31,7 +31,15 @@ export default {
                     'is-top',
                     'is-bottom',
                     'is-left',
-                    'is-right'
+                    'is-right',
+                    'is-top-left',
+                    'is-top-right',
+                    'is-bottom-left',
+                    'is-bottom-right',
+                    'is-left-top',
+                    'is-left-bottom',
+                    'is-right-top',
+                    'is-right-bottom',
                 ].indexOf(value) > -1
             }
         },
@@ -105,7 +113,9 @@ $triangle-margin: 2px;
     }
     
     
-    &.is-top {
+    &.is-top,
+    &.is-top-left,
+    &.is-top-right {
         &:before, &:after {
             top: auto;
             right: auto;
@@ -122,7 +132,24 @@ $triangle-margin: 2px;
         }
     }
 
-    &.is-bottom {
+    &.is-top-left {
+        &:before {
+            left: 16px;
+            transform: translateX(0%);
+        }
+    }
+
+    &.is-top-right {
+        &:before {
+            left: auto;
+            right: 16px;
+            transform: translateX(0%);
+        }
+    }
+
+    &.is-bottom,
+    &.is-bottom-left,
+    &.is-bottom-right {
         &:before, &:after {
             top: calc(100% + #{$triangle-width} + #{$triangle-margin});
             right: auto;
@@ -138,7 +165,24 @@ $triangle-margin: 2px;
         }
     }
 
-    &.is-left { 
+    &.is-bottom-left {
+        &:before {
+            left: 16px;
+            transform: translateX(0%);
+        }
+    }
+
+    &.is-bottom-right {
+        &:before {
+            left: auto;
+            right: 16px;
+            transform: translateX(0%);
+        }
+    }
+
+    &.is-left,
+    &.is-left-top,
+    &.is-left-bottom { 
         &:before, &:after {
             right: calc(100% + #{$triangle-width} + #{$triangle-margin});
             left: auto;
@@ -154,7 +198,24 @@ $triangle-margin: 2px;
         }
     }
 
-    &.is-right { 
+    &.is-left-top {
+        &:before {
+            top: 8px;
+            transform: translateX(0%);
+        }
+    }
+
+    &.is-left-bottom {
+        &:before {
+            top: auto;
+            bottom: 8px;
+            transform: translateX(0%);
+        }
+    }
+
+    &.is-right,
+    &.is-right-top,
+    &.is-right-bottom  { 
         &:before, &:after {
             left: calc(100% + #{$triangle-width} + #{$triangle-margin});
             right: auto;
@@ -169,6 +230,23 @@ $triangle-margin: 2px;
             left: calc(100% + #{$triangle-margin});
         }
     }
+
+    &.is-right-top {
+        &:before {
+            top: 8px;
+            transform: translateX(0%);
+        }
+    }
+
+    &.is-right-bottom {
+        &:before {
+            top: auto;
+            bottom: 8px;
+            transform: translateX(0%);
+        }
+    }
+    
+    
 
     &.is-multiline {
         &:after {
