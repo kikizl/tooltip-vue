@@ -3,6 +3,7 @@
         <p>demo here</p>
         <section>
             <tooltip label="Tooltip right"
+            type="is-light"
             position="is-right">
                 <button class="button is-primary">
                     Right

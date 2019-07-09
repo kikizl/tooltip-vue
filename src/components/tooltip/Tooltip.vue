@@ -14,7 +14,16 @@ export default {
             type: Boolean,
             default: true
         },
-        type: String,
+        type: {
+            type: String,
+            default: 'is-dark',
+            validator(value) {
+                return [
+                    'is-dark',
+                    'is-light',
+                ].indexOf(value) > -1
+            }
+        },
         label: String,
         position: {
             type: String,
@@ -58,7 +67,7 @@ export default {
         computedClass() {
             let names = ''
             if (this.type) {
-                names += (this.newType + ' ')
+                names += (this.type + ' ')
             }
             if (this.position) {
                 names += (this.position + ' ')
@@ -153,7 +162,9 @@ export default {
 }
 </script>
 <style lang="scss" >
+
 $bg-color: rgba($color: #000000, $alpha: .6);
+$font-color: #ffffff;
 $triangle-width: 5px;
 $triangle-margin: 2px;
 
@@ -166,7 +177,7 @@ $triangle-margin: 2px;
 .tooltip {
     position: relative;
     display: inline-flex;
-   
+
     .triangle,
     .message {
         position: absolute;
@@ -187,7 +198,7 @@ $triangle-margin: 2px;
         z-index: 888;
         white-space: nowrap;
         background-color: $bg-color;
-        color: #ffffff;
+        color: $font-color;
         border-radius: 4px;
         transition: display 1s;
     }
@@ -359,6 +370,16 @@ $triangle-margin: 2px;
             &.is-large .message {
                 width: 300px;
             }
+        }
+    }
+
+    &.is-light {
+        .message {
+            color: $bg-color;
+            background-color: $font-color;
+        }
+        .triangle {
+            border-color: $font-color;
         }
     }
 }
