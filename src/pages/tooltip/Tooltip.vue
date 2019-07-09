@@ -194,7 +194,7 @@ export default {
         overflow: hidden;
         padding: 24px;
         border: 1px solid rgb(233, 233, 233);
-        width: 600px;
+        width: 1500px;
         margin: 0 auto;
     }
 }

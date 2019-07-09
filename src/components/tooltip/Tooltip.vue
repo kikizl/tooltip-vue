@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { generateId } from '@/assets/utils/util';
+
 export default {
     name: 'Tooltip',
     props: {
@@ -45,17 +47,15 @@ export default {
         return {
             rectObject: {},
             leftOffset: 0,
-            topOffset: 0
+            topOffset: 0,
+            screenWidth: document.body.clientWidth,
+            screenHeight: document.body.screenHeight,
+            timer: false,
+            id: '',
         }
     },
     computed: {
         computedClass() {
-            let arr = [this.newType, this.position, this.size, 
-                this.active && 'tooltip',
-                this.always && 'is-always',
-                this.multilined && 'is-multiline',
-            ]
-
             let names = ''
             if (this.type) {
                 names += (this.newType + ' ')
@@ -75,39 +75,80 @@ export default {
             if (this.multilined) {
                 names += 'is-multiline '
             }
-            // console.log('names',names)
             return names
         }
     },
     mounted(){
-        
-        let targetDom = this.$refs['message']
-        console.log('hi', this.computedClass, targetDom) 
-
         this.test()
-
+        window.addEventListener('resize', this.windowListen)
+    },
+    beforeDestroy: function () {
+        window.removeEventListener('resize', this.windowListen)
     },
     methods: {
-        test(){
+        windowListen() {
+            const that = this
+            return (() => {
+                window.screenWidth = document.body.clientWidth
+                window.screenHeight = document.body.clientHeight
+                that.screenWidth = window.screenWidth
+                that.screenHeight = window.screenHeight
+            })()
+        },
+        test() {
+            let child = document.getElementById(this.id)
+            if (child) {
+                document.body.removeChild(child)
+            }
             let originDom = this.$refs['tooltip']
+            console.log(originDom.offsetTop)
 
             this.rectObject = originDom.getBoundingClientRect()
-            this.leftOffset = this.rectObject.left
-            this.topOffset = this.rectObject.top
+            this.leftOffset = originDom.offsetLeft
+            this.topOffset = originDom.offsetTop
+            // offsetLeft
 
             var fragment = document.createDocumentFragment();
             var tmpNode = document.createElement("div");
             tmpNode.className = 'tooltip-container ' + this.computedClass
+            this.id = 'tooltip-' + generateId()
+            tmpNode.id = this.id
             tmpNode.style.top = this.topOffset + 'px'
             tmpNode.style.left = this.leftOffset + 'px'
             tmpNode.style.width = this.rectObject.width + 'px'
             tmpNode.style.height = this.rectObject.height + 'px'
-            console.log('hoooo',this.topOffset, this.leftOffset, tmpNode.style.width)
             tmpNode.innerHTML = `<span class="triangle"></span><span class="message">${this.label}</span>`;
             fragment.appendChild(tmpNode);
             
             document.body.appendChild(fragment)
         }
+    },
+    watch: {
+        screenWidth (val) {
+            if (!this.timer) {
+                this.screenWidth = val
+                this.timer = true
+                let that = this
+                setTimeout(function () {
+                    console.log(that.screenWidth)
+                    that.test()
+                    that.timer = false
+                }, 200)
+            }
+        },
+        // screenHeight (val) {
+        //     if (!this.timer) {
+        //         this.screenHeight= val
+        //         this.timer = true
+        //         let that = this
+        //         setTimeout(function () {
+        //             console.log(that.screenHeight)
+        //             that.test()
+        //             that.timer = false
+        //         }, 200)
+        //     }
+        // }
+
     }
 }
 </script>
