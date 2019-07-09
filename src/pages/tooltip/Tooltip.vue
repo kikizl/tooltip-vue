@@ -104,7 +104,7 @@
 
         <section>
             <tooltip
-                label="Tooltip multilined, probably because it's too long for a casual tooltip"
+                label="Tooltipppppppppppppppppppppppppppppppppppppppppppppppp multilined, probably because it's too long for a casual tooltip"
                 position="is-bottom"
                 multilined>
                 <button class="button is-primary">
@@ -172,19 +172,20 @@ export default {
 }
 </script>
 <style lang="scss">
+.origin-container {
+    margin: 20px;
+}
+
 .tooltip-demo  {
     & > section {
         // display: flex;
         padding: 20px;
-
-        .tooltip {
-            margin: 20px;
-        }
-
     }
 
+    
+
     .is-primary {
-        box-sizing: border-box;
+        // box-sizing: border-box;
         padding: 9px 25px;
         height: 34px;
         display: inline-flex;
@@ -205,8 +206,6 @@ export default {
         overflow: hidden;
         padding: 24px;
         border: 1px solid rgb(233, 233, 233);
-        display: flex;
-        flex-direction: column;
         width: 600px;
         margin: 0 auto;
     }
