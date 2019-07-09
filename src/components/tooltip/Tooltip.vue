@@ -163,20 +163,26 @@ $triangle-margin: 2px;
 .origin-container {
     display: inline-block;
 }
-.tooltip-container.tooltip {
+.tooltip-container {
     position: absolute;
-}
-.tooltip {
-    position: relative;
-    display: inline-flex;
-
     .triangle,
     .message {
-        position: absolute;
         content: "";
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
+    }
+}
+
+.tooltip {
+
+    .triangle,
+    .message {
+        position: absolute;
+        // content: "";
+        // opacity: 0;
+        // visibility: hidden;
+        // pointer-events: none;
         display: inline-block;
     }
     .triangle {
