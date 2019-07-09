@@ -1,11 +1,46 @@
 <template>
     <div class="tooltip-demo">
         <p>demo here</p>
+        <section>
+            <tooltip label="Tooltip right"
+            position="is-right">
+                <button class="button is-primary">
+                    Right
+                </button>
+            </tooltip>
+
+            <tooltip label="Tooltip top">
+                <button class="button is-primary">
+                    Top (default)
+                </button>
+            </tooltip>
+
+            <tooltip label="Tooltip bottom"
+                position="is-bottom">
+                <button class="button is-primary">
+                    Bottom
+                </button>
+            </tooltip>
+
+            <tooltip label="Tooltip left"
+                position="is-left">
+                <button class="button is-primary">
+                    Left
+                </button>
+            </tooltip>
+
+            <tooltip label="delayed by 1000ms"
+                :delay="1000">
+                <button class="button is-primary">
+                    Delayed
+                </button>
+            </tooltip>
+        </section>
 
         <section>
             <tooltip label="Tooltip bottom"
                 position="is-bottom">
-                <button class="button is-dark">
+                <button class="button is-primary">
                     Bottom
                 </button>
             </tooltip>
@@ -14,7 +49,7 @@
                 :active="active"
                 position="is-bottom"
                 always>
-                <button class="button">
+                <button class="button is-primary">
                     Always
                 </button>
             </tooltip>
@@ -25,7 +60,7 @@
                 label="Tooltip multilined, probably because it's too long for a casual tooltip"
                 position="is-bottom"
                 multilined>
-                <button class="button is-dark">
+                <button class="button is-primary">
                     Multiline (default)
                 </button>
             </tooltip>
@@ -35,7 +70,7 @@
                 size="is-small"
                 position="is-bottom"
                 multilined>
-                <button class="button is-dark">
+                <button class="button is-primary">
                     Multiline (small)
                 </button>
             </tooltip>
@@ -45,7 +80,7 @@
                 position="is-bottom"
                 size="is-large"
                 multilined>
-                <button class="button is-dark">
+                <button class="button is-primary">
                     Multiline (large)
                 </button>
             </tooltip>
@@ -78,6 +113,24 @@ export default {
             margin: 20px;
         }
 
+    }
+
+    .is-primary {
+        box-sizing: border-box;
+        padding: 9px 25px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 14px;
+        outline: none;
+        border: 1px solid #ddd;
+        color: #444;
+        background: #f4f4f4;
+        font-weight: 400;   
     }
 }
 </style>

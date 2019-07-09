@@ -66,8 +66,9 @@ export default {
 </script>
 <style lang="scss" >
 $bg-color: rgba($color: #000000, $alpha: .6);
+$triangle-width: 5px;
+$triangle-margin: 2px;
 
-// Base
 .tooltip {
     position: relative;
     display: inline-flex;
@@ -130,27 +131,68 @@ $bg-color: rgba($color: #000000, $alpha: .6);
             // transition: opacity $speed $easing, visibility $speed $easing;
         }
     }
-
-
-    &.is-bottom{
-        &:before {
-            top: calc(100% + 5px + 2px);
+    &.is-top {
+        &:before, &:after {
+            top: auto;
             right: auto;
-            bottom: auto;
+            bottom: calc(100% + #{$triangle-width} + #{$triangle-margin});
             left: 50%;
             transform: translateX(-50%);
-            border-right: 5px solid transparent;
-            border-bottom: 5px solid $bg-color;
-            border-left: 5px solid transparent;
-            top: calc(100% + 2px);
         }
-        &:after {
-            top: calc(100% + 5px + 2px);
+        &:before {
+            border-top: $triangle-width solid $bg-color;
+            border-right: $triangle-width solid transparent;
+            border-left: $triangle-width solid transparent;
+            bottom: calc(100% + #{$triangle-margin});
+
+        }
+    }
+
+    &.is-bottom {
+        &:before, &:after {
+            top: calc(100% + #{$triangle-width} + #{$triangle-margin});
             right: auto;
             bottom: auto;
             left: 50%;
             transform: translateX(-50%);
-            background-color: $bg-color;
+        }
+        &:before {
+            border-right: $triangle-width solid transparent;
+            border-bottom: $triangle-width solid $bg-color;
+            border-left: $triangle-width solid transparent;
+            top: calc(100% + #{$triangle-margin});
+        }
+    }
+
+    &.is-left { 
+        &:before, &:after {
+            right: calc(100% + #{$triangle-width} + #{$triangle-margin});
+            left: auto;
+            bottom: auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:before {
+            border-top: $triangle-width solid transparent;
+            border-bottom: $triangle-width solid transparent;
+            border-left: $triangle-width solid $bg-color;
+            right: calc(100% + #{$triangle-margin});
+        }
+    }
+
+    &.is-right { 
+        &:before, &:after {
+            left: calc(100% + #{$triangle-width} + #{$triangle-margin});
+            right: auto;
+            bottom: auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:before {
+            border-top: $triangle-width solid transparent;
+            border-bottom: $triangle-width solid transparent;
+            border-right: $triangle-width solid $bg-color;
+            left: calc(100% + #{$triangle-margin});
         }
     }
 
